@@ -3,7 +3,7 @@
 <head><meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>dbagan_PEC3_modificaciones</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>dbagan_TFM</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 
 
@@ -14600,7 +14600,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[528]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -14645,7 +14645,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[529]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;positions_1000.csv&quot;</span><span class="p">)</span>
@@ -22581,22 +22581,6 @@ F1 score: 0.04347826086956522
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[453]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
@@ -23011,6 +22995,656 @@ Recall: 0.1
 F1 score: 0.04347826086956522
 </pre>
 </div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Riesgo-de-colisi%C3%B3n-(Gaussian-Process-Regressor)-(5-posicones)">Riesgo de colisi&#243;n (Gaussian Process Regressor) (5 posicones)<a class="anchor-link" href="#Riesgo-de-colisi%C3%B3n-(Gaussian-Process-Regressor)-(5-posicones)">&#182;</a></h2>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_names</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">df_full_names</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">8000</span><span class="p">,</span> <span class="mi">20</span><span class="p">):</span>
+    <span class="n">df_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;collision_dfs/df_collisions_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">20</span><span class="si">}</span><span class="s2">.csv&quot;</span><span class="p">[</span><span class="mi">14</span><span class="p">:</span><span class="o">-</span><span class="mi">4</span><span class="p">])</span>
+    <span class="n">df_full_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;collision_dfs/df_collisions_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">20</span><span class="si">}</span><span class="s2">.csv&quot;</span><span class="p">)</span>
+    
+<span class="n">collision_dfs</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df_names</span><span class="p">)):</span>
+    <span class="n">collision_dfs</span><span class="p">[</span><span class="n">df_names</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">df_full_names</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">&quot;Unnamed: 0&quot;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pred_columns</span>  <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;lat_0&quot;</span><span class="p">,</span> <span class="s2">&quot;long_0&quot;</span><span class="p">,</span> <span class="s2">&quot;lat_1&quot;</span><span class="p">,</span> <span class="s2">&quot;long_1&quot;</span><span class="p">,</span> <span class="s2">&quot;lat_2&quot;</span><span class="p">,</span> <span class="s2">&quot;long_2&quot;</span><span class="p">,</span> <span class="s2">&quot;lat_3&quot;</span><span class="p">,</span> <span class="s2">&quot;long_3&quot;</span><span class="p">,</span> <span class="s2">&quot;lat_4&quot;</span><span class="p">,</span> <span class="s2">&quot;long_4&quot;</span><span class="p">,</span> 
+             <span class="s2">&quot;lat_5&quot;</span><span class="p">,</span> <span class="s2">&quot;long_5&quot;</span><span class="p">,</span> <span class="s2">&quot;lat_6&quot;</span><span class="p">,</span> <span class="s2">&quot;long_6&quot;</span><span class="p">,</span> <span class="s2">&quot;lat_7&quot;</span><span class="p">,</span> <span class="s2">&quot;long_7&quot;</span><span class="p">,</span> <span class="s2">&quot;lat_8&quot;</span><span class="p">,</span> <span class="s2">&quot;long_8&quot;</span><span class="p">,</span> <span class="s2">&quot;lat_9&quot;</span><span class="p">,</span> <span class="s2">&quot;long_9&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;lat_10&quot;</span><span class="p">,</span> <span class="s2">&quot;long_10&quot;</span><span class="p">,</span> <span class="s2">&quot;lat_11&quot;</span><span class="p">,</span> <span class="s2">&quot;long_11&quot;</span><span class="p">,</span> <span class="s2">&quot;lat_12&quot;</span><span class="p">,</span> <span class="s2">&quot;long_12&quot;</span><span class="p">,</span> <span class="s2">&quot;lat_13&quot;</span><span class="p">,</span> <span class="s2">&quot;long_13&quot;</span><span class="p">,</span> <span class="s2">&quot;lat_14&quot;</span><span class="p">,</span> <span class="s2">&quot;long_14&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;lat_15&quot;</span><span class="p">,</span> <span class="s2">&quot;long_15&quot;</span><span class="p">,</span> <span class="s2">&quot;lat_16&quot;</span><span class="p">,</span> <span class="s2">&quot;long_16&quot;</span><span class="p">,</span> <span class="s2">&quot;lat_17&quot;</span><span class="p">,</span> <span class="s2">&quot;long_17&quot;</span><span class="p">,</span> <span class="s2">&quot;lat_18&quot;</span><span class="p">,</span> <span class="s2">&quot;long_18&quot;</span><span class="p">,</span> <span class="s2">&quot;lat_19&quot;</span><span class="p">,</span> <span class="s2">&quot;long_19&quot;</span><span class="p">]</span>
+
+<span class="n">real_columns</span>  <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;lat_0&quot;</span><span class="p">,</span> <span class="s2">&quot;long_0&quot;</span><span class="p">,</span> <span class="s2">&quot;lat_1&quot;</span><span class="p">,</span> <span class="s2">&quot;long_1&quot;</span><span class="p">,</span> <span class="s2">&quot;lat_2&quot;</span><span class="p">,</span> <span class="s2">&quot;long_2&quot;</span><span class="p">,</span> <span class="s2">&quot;lat_3&quot;</span><span class="p">,</span> <span class="s2">&quot;long_3&quot;</span><span class="p">,</span> <span class="s2">&quot;lat_4&quot;</span><span class="p">,</span> <span class="s2">&quot;long_4&quot;</span><span class="p">,</span> 
+             <span class="s2">&quot;lat_5&quot;</span><span class="p">,</span> <span class="s2">&quot;long_5&quot;</span><span class="p">,</span> <span class="s2">&quot;lat_6&quot;</span><span class="p">,</span> <span class="s2">&quot;long_6&quot;</span><span class="p">,</span> <span class="s2">&quot;lat_7&quot;</span><span class="p">,</span> <span class="s2">&quot;long_7&quot;</span><span class="p">,</span> <span class="s2">&quot;lat_8&quot;</span><span class="p">,</span> <span class="s2">&quot;long_8&quot;</span><span class="p">,</span> <span class="s2">&quot;lat_9&quot;</span><span class="p">,</span> <span class="s2">&quot;long_9&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;lat_10&quot;</span><span class="p">,</span> <span class="s2">&quot;long_10&quot;</span><span class="p">,</span> <span class="s2">&quot;lat_11&quot;</span><span class="p">,</span> <span class="s2">&quot;long_11&quot;</span><span class="p">,</span> <span class="s2">&quot;lat_12&quot;</span><span class="p">,</span> <span class="s2">&quot;long_12&quot;</span><span class="p">,</span> <span class="s2">&quot;lat_13&quot;</span><span class="p">,</span> <span class="s2">&quot;long_13&quot;</span><span class="p">,</span> <span class="s2">&quot;lat_14&quot;</span><span class="p">,</span> <span class="s2">&quot;long_14&quot;</span><span class="p">]</span>
+
+<span class="n">columns</span> <span class="o">=</span> <span class="n">pred_columns</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dfs_with_collisions</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">collision_dfs</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="n">df_col</span> <span class="o">=</span> <span class="n">collision_dfs</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">20</span><span class="p">):</span>
+        <span class="n">hay_colision</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_col</span><span class="p">[</span><span class="n">df_col</span><span class="p">[</span><span class="s1">&#39;collision_&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span><span class="o">==</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">hay_colision</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+            <span class="n">dfs_with_collisions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>df_collisions_0_20
+df_collisions_620_640
+df_collisions_1000_1020
+df_collisions_1440_1460
+df_collisions_2040_2060
+df_collisions_2240_2260
+df_collisions_2680_2700
+df_collisions_2860_2880
+df_collisions_4020_4040
+df_collisions_4620_4640
+df_collisions_4780_4800
+df_collisions_5360_5380
+df_collisions_5480_5500
+df_collisions_6400_6420
+df_collisions_6720_6740
+df_collisions_7500_7520
+df_collisions_7860_7880
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_colls</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">collision_dfs</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">dfs_with_collisions</span><span class="p">}</span>
+<span class="n">df_colls_pos</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">collision_dfs</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">pred_columns</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">dfs_with_collisions</span><span class="p">}</span> 
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">real_collisions_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">columns</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;df_time&#39;</span><span class="p">])</span>
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">df_colls</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="n">curr_df</span> <span class="o">=</span> <span class="n">df_colls</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">):</span>
+        <span class="n">real_collisions</span> <span class="o">=</span> <span class="n">curr_df</span><span class="p">[</span><span class="n">curr_df</span><span class="p">[</span><span class="s1">&#39;collision_&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span><span class="o">==</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">real_collisions</span><span class="p">[</span><span class="s1">&#39;df_time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">key</span>
+        <span class="n">real_collisions_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">real_collisions_df</span><span class="p">,</span> <span class="n">real_collisions</span><span class="p">])</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
+<pre>C:\Users\DANIE\AppData\Local\Temp\ipykernel_15044\538006242.py:6: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  real_collisions[&#39;df_time&#39;] = key
+C:\Users\DANIE\AppData\Local\Temp\ipykernel_15044\538006242.py:6: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  real_collisions[&#39;df_time&#39;] = key
+C:\Users\DANIE\AppData\Local\Temp\ipykernel_15044\538006242.py:6: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  real_collisions[&#39;df_time&#39;] = key
+C:\Users\DANIE\AppData\Local\Temp\ipykernel_15044\538006242.py:6: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  real_collisions[&#39;df_time&#39;] = key
+C:\Users\DANIE\AppData\Local\Temp\ipykernel_15044\538006242.py:6: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  real_collisions[&#39;df_time&#39;] = key
+C:\Users\DANIE\AppData\Local\Temp\ipykernel_15044\538006242.py:6: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  real_collisions[&#39;df_time&#39;] = key
+C:\Users\DANIE\AppData\Local\Temp\ipykernel_15044\538006242.py:6: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  real_collisions[&#39;df_time&#39;] = key
+C:\Users\DANIE\AppData\Local\Temp\ipykernel_15044\538006242.py:6: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  real_collisions[&#39;df_time&#39;] = key
+C:\Users\DANIE\AppData\Local\Temp\ipykernel_15044\538006242.py:6: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  real_collisions[&#39;df_time&#39;] = key
+C:\Users\DANIE\AppData\Local\Temp\ipykernel_15044\538006242.py:6: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  real_collisions[&#39;df_time&#39;] = key
+C:\Users\DANIE\AppData\Local\Temp\ipykernel_15044\538006242.py:6: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  real_collisions[&#39;df_time&#39;] = key
+C:\Users\DANIE\AppData\Local\Temp\ipykernel_15044\538006242.py:6: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  real_collisions[&#39;df_time&#39;] = key
+C:\Users\DANIE\AppData\Local\Temp\ipykernel_15044\538006242.py:6: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  real_collisions[&#39;df_time&#39;] = key
+C:\Users\DANIE\AppData\Local\Temp\ipykernel_15044\538006242.py:6: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  real_collisions[&#39;df_time&#39;] = key
+C:\Users\DANIE\AppData\Local\Temp\ipykernel_15044\538006242.py:6: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  real_collisions[&#39;df_time&#39;] = key
+C:\Users\DANIE\AppData\Local\Temp\ipykernel_15044\538006242.py:6: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  real_collisions[&#39;df_time&#39;] = key
+C:\Users\DANIE\AppData\Local\Temp\ipykernel_15044\538006242.py:6: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  real_collisions[&#39;df_time&#39;] = key
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data_colls</span> <span class="o">=</span><span class="p">{}</span>
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">df_colls_pos</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="n">data_colls</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;reg_coll_data/</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">.npy&quot;</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pred_columns</span>  <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;lat_0&quot;</span><span class="p">,</span> <span class="s2">&quot;long_0&quot;</span><span class="p">,</span> <span class="s2">&quot;lat_1&quot;</span><span class="p">,</span> <span class="s2">&quot;long_1&quot;</span><span class="p">,</span> <span class="s2">&quot;lat_2&quot;</span><span class="p">,</span> <span class="s2">&quot;long_2&quot;</span><span class="p">,</span> <span class="s2">&quot;lat_3&quot;</span><span class="p">,</span> <span class="s2">&quot;long_3&quot;</span><span class="p">,</span> <span class="s2">&quot;lat_4&quot;</span><span class="p">,</span> <span class="s2">&quot;long_4&quot;</span><span class="p">,</span> 
+             <span class="s2">&quot;lat_5&quot;</span><span class="p">,</span> <span class="s2">&quot;long_5&quot;</span><span class="p">,</span> <span class="s2">&quot;lat_6&quot;</span><span class="p">,</span> <span class="s2">&quot;long_6&quot;</span><span class="p">,</span> <span class="s2">&quot;lat_7&quot;</span><span class="p">,</span> <span class="s2">&quot;long_7&quot;</span><span class="p">,</span> <span class="s2">&quot;lat_8&quot;</span><span class="p">,</span> <span class="s2">&quot;long_8&quot;</span><span class="p">,</span> <span class="s2">&quot;lat_9&quot;</span><span class="p">,</span> <span class="s2">&quot;long_9&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;lat_10&quot;</span><span class="p">,</span> <span class="s2">&quot;long_10&quot;</span><span class="p">,</span> <span class="s2">&quot;lat_11&quot;</span><span class="p">,</span> <span class="s2">&quot;long_11&quot;</span><span class="p">,</span> <span class="s2">&quot;lat_12&quot;</span><span class="p">,</span> <span class="s2">&quot;long_12&quot;</span><span class="p">,</span> <span class="s2">&quot;lat_13&quot;</span><span class="p">,</span> <span class="s2">&quot;long_13&quot;</span><span class="p">,</span> <span class="s2">&quot;lat_14&quot;</span><span class="p">,</span> <span class="s2">&quot;long_14&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;lat_15&quot;</span><span class="p">,</span> <span class="s2">&quot;long_15&quot;</span><span class="p">,</span> <span class="s2">&quot;lat_16&quot;</span><span class="p">,</span> <span class="s2">&quot;long_16&quot;</span><span class="p">,</span> <span class="s2">&quot;lat_17&quot;</span><span class="p">,</span> <span class="s2">&quot;long_17&quot;</span><span class="p">,</span> <span class="s2">&quot;lat_18&quot;</span><span class="p">,</span> <span class="s2">&quot;long_18&quot;</span><span class="p">,</span> <span class="s2">&quot;lat_19&quot;</span><span class="p">,</span> <span class="s2">&quot;long_19&quot;</span><span class="p">]</span>
+
+<span class="n">real_columns</span>  <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;lat_0&quot;</span><span class="p">,</span> <span class="s2">&quot;long_0&quot;</span><span class="p">,</span> <span class="s2">&quot;lat_1&quot;</span><span class="p">,</span> <span class="s2">&quot;long_1&quot;</span><span class="p">,</span> <span class="s2">&quot;lat_2&quot;</span><span class="p">,</span> <span class="s2">&quot;long_2&quot;</span><span class="p">,</span> <span class="s2">&quot;lat_3&quot;</span><span class="p">,</span> <span class="s2">&quot;long_3&quot;</span><span class="p">,</span> <span class="s2">&quot;lat_4&quot;</span><span class="p">,</span> <span class="s2">&quot;long_4&quot;</span><span class="p">,</span> 
+             <span class="s2">&quot;lat_5&quot;</span><span class="p">,</span> <span class="s2">&quot;long_5&quot;</span><span class="p">,</span> <span class="s2">&quot;lat_6&quot;</span><span class="p">,</span> <span class="s2">&quot;long_6&quot;</span><span class="p">,</span> <span class="s2">&quot;lat_7&quot;</span><span class="p">,</span> <span class="s2">&quot;long_7&quot;</span><span class="p">,</span> <span class="s2">&quot;lat_8&quot;</span><span class="p">,</span> <span class="s2">&quot;long_8&quot;</span><span class="p">,</span> <span class="s2">&quot;lat_9&quot;</span><span class="p">,</span> <span class="s2">&quot;long_9&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;lat_10&quot;</span><span class="p">,</span> <span class="s2">&quot;long_10&quot;</span><span class="p">,</span> <span class="s2">&quot;lat_11&quot;</span><span class="p">,</span> <span class="s2">&quot;long_11&quot;</span><span class="p">,</span> <span class="s2">&quot;lat_12&quot;</span><span class="p">,</span> <span class="s2">&quot;long_12&quot;</span><span class="p">,</span> <span class="s2">&quot;lat_13&quot;</span><span class="p">,</span> <span class="s2">&quot;long_13&quot;</span><span class="p">,</span> <span class="s2">&quot;lat_14&quot;</span><span class="p">,</span> <span class="s2">&quot;long_14&quot;</span><span class="p">]</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">call_get_next_5_positions_res</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">model</span><span class="p">):</span>
+    <span class="n">df_colls_res</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">pred_columns</span><span class="p">)</span>
+    <span class="n">array_colls_res</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mi">40</span><span class="p">))</span>
+    <span class="n">array_colls_res</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">dataset</span><span class="p">:</span>
+        <span class="n">prediction</span> <span class="o">=</span> <span class="n">get_next_5_positions</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">model</span><span class="p">)</span>
+        <span class="n">array_colls_res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">prediction</span><span class="p">)</span>
+    <span class="n">df_colls_res</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">array_colls_res</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">pred_columns</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">df_colls_res</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">get_next_5_positions</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">model</span><span class="p">):</span>
+    
+    <span class="n">df_res</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">15</span><span class="p">]</span>
+    
+    <span class="c1"># Prediction 1</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">15</span><span class="p">]</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">16</span><span class="p">]</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="n">pred_1</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">([</span><span class="n">y</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
+    <span class="n">real_1</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">16</span><span class="p">]</span>
+    
+    <span class="c1"># Prediction 2</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">15</span><span class="p">],</span> <span class="n">pred_1</span><span class="p">))</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">data</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">15</span><span class="p">],</span> <span class="n">pred_1</span><span class="p">,</span> <span class="p">[</span><span class="n">real_1</span><span class="p">]))</span>   
+    <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="n">pred_2</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">([</span><span class="n">y</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
+    <span class="n">real_2</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">17</span><span class="p">]</span>
+
+    <span class="c1"># Prediction 3</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">data</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">15</span><span class="p">],</span> <span class="n">pred_1</span><span class="p">,</span> <span class="n">pred_2</span><span class="p">))</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">data</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">15</span><span class="p">],</span> <span class="n">pred_1</span><span class="p">,</span> <span class="n">pred_2</span><span class="p">,</span> <span class="p">[</span><span class="n">real_2</span><span class="p">]))</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="n">pred_3</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">([</span><span class="n">y</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
+    <span class="n">real_3</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">18</span><span class="p">]</span>
+
+    <span class="c1"># Prediction 4</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">data</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">15</span><span class="p">],</span> <span class="n">pred_1</span><span class="p">,</span> <span class="n">pred_2</span><span class="p">,</span> <span class="n">pred_3</span><span class="p">))</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">data</span><span class="p">[</span><span class="mi">4</span><span class="p">:</span><span class="mi">15</span><span class="p">],</span> <span class="n">pred_1</span><span class="p">,</span> <span class="n">pred_2</span><span class="p">,</span> <span class="n">pred_3</span><span class="p">,</span> <span class="p">[</span><span class="n">real_3</span><span class="p">]))</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="n">pred_4</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">([</span><span class="n">y</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
+    <span class="n">real_4</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">19</span><span class="p">]</span>
+
+    <span class="c1"># Prediction 5</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">data</span><span class="p">[</span><span class="mi">4</span><span class="p">:</span><span class="mi">15</span><span class="p">],</span> <span class="n">pred_1</span><span class="p">,</span> <span class="n">pred_2</span><span class="p">,</span> <span class="n">pred_3</span><span class="p">,</span> <span class="n">pred_4</span><span class="p">))</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">data</span><span class="p">[</span><span class="mi">5</span><span class="p">:</span><span class="mi">15</span><span class="p">],</span> <span class="n">pred_1</span><span class="p">,</span> <span class="n">pred_2</span><span class="p">,</span> <span class="n">pred_3</span><span class="p">,</span> <span class="n">pred_4</span><span class="p">,</span> <span class="p">[</span><span class="n">real_4</span><span class="p">]))</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="n">pred_5</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">([</span><span class="n">y</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
+
+    
+    <span class="c1">#predictions = [l.tolist() for l in [pred_1[0],pred_2[0],pred_3[0],pred_4[0],pred_5[0],pred_6[0],pred_7[0],pred_8[0],pred_9[0],pred_10[0]]]</span>
+    <span class="c1">#real_values = [l.tolist() for l in [real_1,real_2,real_3,real_4,real_5,real_6,real_7,real_8,real_9,real_10]]</span>
+
+    <span class="n">df_res</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df_res</span><span class="p">,</span> <span class="p">[</span><span class="n">pred_1</span><span class="p">,</span> <span class="n">pred_2</span><span class="p">,</span> <span class="n">pred_3</span><span class="p">,</span> <span class="n">pred_4</span><span class="p">,</span> <span class="n">pred_5</span><span class="p">])</span>
+    
+    <span class="k">return</span> <span class="n">df_res</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">ExtraTreeRegressor</span>
+<span class="n">df_predictions</span> <span class="o">=</span><span class="p">{}</span>
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">data_colls</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">ExtraTreeRegressor</span><span class="p">()</span>
+    <span class="n">df_predictions</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">call_get_next_5_positions_res</span><span class="p">(</span><span class="n">data_colls</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">model</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pickle</span>
+<span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;df_collision_risk_1to1_gauss_5.pickle&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span>
+<span class="n">df_collision_risk_1to1</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+<span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># RIESGO COLISIÓN</span>
+<span class="n">vehicles</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">real_collisions_df</span><span class="p">[</span><span class="s1">&#39;vehicle_id&#39;</span><span class="p">])]</span>
+<span class="n">victims</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">real_collisions_df</span><span class="p">[</span><span class="s1">&#39;victim_id_19&#39;</span><span class="p">])]</span>
+<span class="n">keys</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">real_collisions_df</span><span class="p">[</span><span class="s1">&#39;df_time&#39;</span><span class="p">])</span> 
+<span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">vehicles</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">victims</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">!=</span><span class="mi">868</span><span class="p">):</span> <span class="c1"># vehicle out of this data</span>
+        <span class="n">curr_res</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">dataframe</span> <span class="o">=</span> <span class="n">df_collision_risk_1to1</span><span class="p">[</span><span class="n">keys</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>      
+        <span class="n">fila</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;vehicle_id&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">vehicles</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
+        <span class="n">prob</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">fila</span><span class="p">[</span><span class="n">victims</span><span class="p">[</span><span class="n">i</span><span class="p">]])</span>
+        <span class="n">curr_res</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">vehicles</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">victims</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">keys</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">prob</span><span class="p">])</span>
+        <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">curr_res</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">res_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;vehicle_id&#39;</span><span class="p">,</span><span class="s1">&#39;victim_id&#39;</span><span class="p">,</span><span class="s1">&#39;df_time&#39;</span><span class="p">,</span><span class="s1">&#39;collision_risk&#39;</span><span class="p">])</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[15]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">res_df</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[15]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>vehicle_id</th>
+      <th>victim_id</th>
+      <th>df_time</th>
+      <th>collision_risk</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>200</td>
+      <td>286</td>
+      <td>df_collisions_0_20</td>
+      <td>0.121915</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1166</td>
+      <td>1161</td>
+      <td>df_collisions_1000_1020</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1347</td>
+      <td>1283</td>
+      <td>df_collisions_1440_1460</td>
+      <td>0.203768</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1749</td>
+      <td>1800</td>
+      <td>df_collisions_2040_2060</td>
+      <td>0.207146</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2157</td>
+      <td>2155</td>
+      <td>df_collisions_2240_2260</td>
+      <td>0.207375</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>2022</td>
+      <td>2473</td>
+      <td>df_collisions_2680_2700</td>
+      <td>0.177073</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>2384</td>
+      <td>2365</td>
+      <td>df_collisions_2860_2880</td>
+      <td>0.315616</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>3690</td>
+      <td>3640</td>
+      <td>df_collisions_4020_4040</td>
+      <td>0.167884</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>4241</td>
+      <td>4234</td>
+      <td>df_collisions_4620_4640</td>
+      <td>0.154425</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>4279</td>
+      <td>4280</td>
+      <td>df_collisions_4780_4800</td>
+      <td>0.122508</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>4572</td>
+      <td>4744</td>
+      <td>df_collisions_5360_5380</td>
+      <td>0.147923</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>4980</td>
+      <td>4987</td>
+      <td>df_collisions_5480_5500</td>
+      <td>0.295958</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>5222</td>
+      <td>4682</td>
+      <td>df_collisions_6400_6420</td>
+      <td>0.314585</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>5823</td>
+      <td>5807</td>
+      <td>df_collisions_6720_6740</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>6400</td>
+      <td>6386</td>
+      <td>df_collisions_7500_7520</td>
+      <td>0.123619</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
 </div>
 
 </div>
